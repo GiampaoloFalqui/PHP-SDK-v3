@@ -44,9 +44,22 @@ class Platform
 		{
 			$configuration = new Config($configuration);
 		}
-		$this->config = $configuration;
+		$this->config = $this->setConfig($configuration);
 	}
 	
+	/**
+	 * Sets the Config object used by this Platform instance
+	 * 
+	 * @param Config $config The Config object
+	 * 
+	 * @return $this
+	 */
+	public function setConfig(Config $config)
+	{
+		$this->config = $config;
+		return $this;
+	}
+
 	/**
 	 * Get the Config object used by this Platform instance
 	 * 
