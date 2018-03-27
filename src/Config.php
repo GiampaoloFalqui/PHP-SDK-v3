@@ -234,6 +234,14 @@ class Config
 			{
 				$object = $options[$key];
 				
+				if (is_string($object))
+				{
+					if (class_exists($object))
+					{
+						$object = new $object;
+					}
+				}
+				
 				// Call factory method if the option is set as an array
 				if (is_array($object))
 				{
